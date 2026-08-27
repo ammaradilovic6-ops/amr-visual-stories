@@ -1,4 +1,11 @@
+import gordon01 from "@/assets/gordon-shortform-01.mp4.asset.json";
+import gordon02 from "@/assets/gordon-shortform-02.mp4.asset.json";
+import gordon03 from "@/assets/gordon-shortform-03.mp4.asset.json";
+import admir01 from "@/assets/admir-shortform-01.mp4.asset.json";
+import admir02 from "@/assets/admir-shortform-02.mp4.asset.json";
+
 export type Tag =
+
   | "EDIT"
   | "SHOOT"
   | "MOTION"
@@ -66,7 +73,15 @@ export const projects: Project[] = [
     tags: ["SHOOT", "EDIT"],
     description: "Filmed and edited content from production through post-production.",
     role: ["Filming", "Camera operation", "Editing", "Post-production"],
-    media: [{ kind: "placeholder", label: "VIDEOGRAPHY / EDITING" }],
+    media: [
+      {
+        kind: "youtube",
+        id: "LRIP0yRXU20",
+        url: "https://www.youtube.com/watch?v=LRIP0yRXU20",
+        label: "Filmed & Edited",
+      },
+    ],
+
     layout: "tall",
   },
   {
@@ -108,25 +123,62 @@ export const projects: Project[] = [
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
 
 // Real supplied media. Association with a specific project is not established,
-// so it lives under ADDITIONAL WORK rather than being guessed onto a client.
+// so it lives under MORE WORK rather than being guessed onto a client.
 export const youtubeWork: { id: string; url: string }[] = [
   { id: "l7b7hpGra8U", url: "https://www.youtube.com/watch?v=l7b7hpGra8U" },
   { id: "mi5nyErchKA", url: "https://www.youtube.com/watch?v=mi5nyErchKA" },
   { id: "d2uj8zEG9EA", url: "https://www.youtube.com/watch?v=d2uj8zEG9EA" },
 ];
 
-export const reelWork: string[] = [
-  "https://www.instagram.com/reel/DZNZScRIEmy/",
-  "https://www.instagram.com/reel/DYkIWD-o519/",
-  "https://www.instagram.com/reel/DYSzaUcIyni/",
-  "https://www.instagram.com/reel/DX8qKzFoe6S/",
-  "https://www.instagram.com/reel/DXJzBUtiC_h/",
-  "https://www.instagram.com/reel/DW-2G_kiBOI/",
-  "https://www.instagram.com/reel/DbENge7K4hh/",
-  "https://www.instagram.com/reel/Da0pRTHqkE4/",
-  "https://www.instagram.com/reel/DZsodWWJ8rC/",
-  "https://www.instagram.com/reel/DcY4ly1KnUt/",
+/** Real uploaded short-form MP4s. Exactly five. */
+export type ShortFormClip = {
+  id: string;
+  src: string;
+  client: string;
+  slug: string;
+  label: string;
+};
+
+export const shortForm: ShortFormClip[] = [
+  {
+    id: "gordon-01",
+    src: gordon01.url,
+    client: "Gordon Kast",
+    slug: "gordon-kast",
+    label: "Short-form editing",
+  },
+  {
+    id: "gordon-02",
+    src: gordon02.url,
+    client: "Gordon Kast",
+    slug: "gordon-kast",
+    label: "Short-form editing",
+  },
+  {
+    id: "gordon-03",
+    src: gordon03.url,
+    client: "Gordon Kast",
+    slug: "gordon-kast",
+    label: "Short-form editing",
+  },
+  {
+    id: "admir-01",
+    src: admir01.url,
+    client: "Admir Shera",
+    slug: "admir-shera",
+    label: "Short-form editing",
+  },
+  {
+    id: "admir-02",
+    src: admir02.url,
+    client: "Admir Shera",
+    slug: "admir-shera",
+    label: "Short-form editing",
+  },
 ];
+
+export const clipsFor = (slug: string) => shortForm.filter((c) => c.slug === slug);
+
 
 export const capabilities = [
   {

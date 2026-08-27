@@ -1,8 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { projects, capabilities, EMAIL, INSTAGRAM, INSTAGRAM_URL } from "@/data/projects";
+import {
+  projects,
+  capabilities,
+  experience,
+  EMAIL,
+  INSTAGRAM,
+  INSTAGRAM_URL,
+} from "@/data/projects";
 import { ProjectCard } from "@/components/site/ProjectCard";
 import { AdditionalWork } from "@/components/site/AdditionalWork";
+import { ShortFormGrid } from "@/components/site/ShortForm";
 import { Reveal } from "@/components/site/Reveal";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -80,23 +89,6 @@ function Index() {
           </Reveal>
         </div>
 
-        {/* HERO MEDIA — CSS only, no imagery */}
-        <Reveal delay={260} className="mt-14 md:mt-20">
-          <div className="media-block aspect-[16/10] md:aspect-[21/9]">
-            <div
-              aria-hidden="true"
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(150deg, oklch(0.20 0 0) 0%, oklch(0.145 0 0) 60%, oklch(0.178 0 0) 100%)",
-              }}
-            />
-            <div className="relative flex h-full flex-col items-center justify-center gap-2">
-              <p className="display text-3xl text-foreground md:text-6xl">Showreel</p>
-              <p className="eyebrow">Coming soon</p>
-            </div>
-          </div>
-        </Reveal>
       </section>
 
       {/* SELECTED WORK */}
@@ -129,14 +121,13 @@ function Index() {
         </div>
 
         <Reveal className="mt-12">
-          <Link
-            to="/work"
-            className="eyebrow link-underline text-foreground"
-          >
+          <Link to="/work" className="eyebrow link-underline text-foreground">
             All work →
           </Link>
         </Reveal>
       </section>
+
+      <ShortFormGrid />
 
       <AdditionalWork />
 
@@ -161,6 +152,30 @@ function Index() {
         </div>
       </section>
 
+      {/* EXPERIENCE */}
+      <section className="shell mt-28 md:mt-40">
+        <Reveal>
+          <h2 className="display hairline pt-8 text-4xl md:text-6xl">Experience</h2>
+        </Reveal>
+        <ul className="mt-10">
+          {experience.map((e, i) => (
+            <Reveal key={e.name} delay={i * 60} as="li">
+              <div className="flex flex-col gap-1 border-t border-border py-6 md:flex-row md:items-baseline md:justify-between">
+                <p className="text-xl font-semibold tracking-[-0.03em] md:text-2xl">
+                  {e.name}
+                </p>
+                <p className="text-sm text-muted-foreground">{e.meta}</p>
+              </div>
+            </Reveal>
+          ))}
+        </ul>
+        <Reveal className="mt-8">
+          <Link to="/experience" className="eyebrow link-underline text-foreground">
+            Full experience →
+          </Link>
+        </Reveal>
+      </section>
+
       {/* ABOUT teaser */}
       <section className="shell mt-28 md:mt-40">
         <div className="grid gap-10 md:grid-cols-12">
@@ -178,25 +193,6 @@ function Index() {
               More about me →
             </Link>
           </Reveal>
-        </div>
-      </section>
-
-      {/* TESTIMONIALS */}
-      <section className="shell mt-28 md:mt-40">
-        <Reveal>
-          <h2 className="display hairline pt-8 text-4xl md:text-6xl">Client Feedback</h2>
-        </Reveal>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {[0, 1, 2].map((i) => (
-            <Reveal key={i} delay={i * 80}>
-              <div className="media-block flex aspect-[4/3] flex-col justify-end p-6">
-                <p className="eyebrow">Client feedback</p>
-                <p className="mt-1 text-lg font-semibold tracking-[-0.02em] text-muted-foreground">
-                  Coming soon
-                </p>
-              </div>
-            </Reveal>
-          ))}
         </div>
       </section>
 
@@ -237,3 +233,4 @@ function Index() {
     </>
   );
 }
+
