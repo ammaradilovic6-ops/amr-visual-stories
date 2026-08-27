@@ -1,7 +1,9 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { getProject, projects } from "@/data/projects";
-import { PlaceholderMedia } from "@/components/site/Media";
+import { getProject, projects, clipsFor } from "@/data/projects";
+import { PlaceholderMedia, YouTubeMedia } from "@/components/site/Media";
+import { ShortFormCard } from "@/components/site/ShortForm";
 import { Reveal } from "@/components/site/Reveal";
+
 
 export const Route = createFileRoute("/work/$slug")({
   loader: ({ params }) => {

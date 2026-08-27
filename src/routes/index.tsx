@@ -1,8 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { projects, capabilities, EMAIL, INSTAGRAM, INSTAGRAM_URL } from "@/data/projects";
+import {
+  projects,
+  capabilities,
+  experience,
+  EMAIL,
+  INSTAGRAM,
+  INSTAGRAM_URL,
+} from "@/data/projects";
 import { ProjectCard } from "@/components/site/ProjectCard";
 import { AdditionalWork } from "@/components/site/AdditionalWork";
+import { ShortFormGrid } from "@/components/site/ShortForm";
 import { Reveal } from "@/components/site/Reveal";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
