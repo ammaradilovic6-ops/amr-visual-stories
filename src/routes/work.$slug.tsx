@@ -34,6 +34,8 @@ export const Route = createFileRoute("/work/$slug")({
 function ProjectPage() {
   const { project } = Route.useLoaderData();
   const related = projects.filter((p) => p.slug !== project.slug).slice(0, 3);
+  const clips = clipsFor(project.slug);
+  const yt = project.media.find((m) => m.kind === "youtube");
 
   return (
     <article className="shell pt-16 md:pt-24">
@@ -46,16 +48,26 @@ function ProjectPage() {
         </h1>
       </Reveal>
 
-      {/* Large media — CSS only until real media for this project is supplied */}
+      {/* Real media where supplied, CSS-only otherwise */}
       <Reveal delay={80} className="mt-10 md:mt-14">
-        <PlaceholderMedia
-          title={project.title}
-          meta={project.categories.join(" / ")}
-          cta="Media coming soon"
-          ratio="aspect-[16/10] md:aspect-[21/9]"
-          size="lg"
-        />
+        {yt ? (
+          <YouTubeMedia id={yt.id} title={`${project.title} — ${yt.label}`} />
+        ) : clips.length > 0 ? (
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
+            {clips.map((c) => (
+              <ShortFormCard key={c.id} clip={c} />
+            ))}
+          </div>
+        ) : (
+          <PlaceholderMedia
+            title={project.title}
+            meta={project.categories.join(" / ")}
+            ratio="aspect-[16/10] md:aspect-[21/9]"
+            size="lg"
+          />
+        )}
       </Reveal>
+
 
       <div className="mt-14 grid gap-12 md:grid-cols-12">
         <Reveal className="md:col-span-4">
