@@ -1,16 +1,15 @@
-import { reelWork, youtubeWork } from "@/data/projects";
-import { PlaceholderMedia, YouTubeMedia } from "./Media";
+import { youtubeWork } from "@/data/projects";
+import { YouTubeMedia } from "./Media";
 import { Reveal } from "./Reveal";
 
 export function AdditionalWork() {
   return (
-    <section className="shell mt-28 md:mt-40" id="additional-work">
+    <section className="shell mt-28 md:mt-40" id="more-work">
       <Reveal>
         <div className="hairline flex flex-col gap-3 pt-8 md:flex-row md:items-end md:justify-between">
-          <h2 className="display text-4xl md:text-6xl">Additional Work</h2>
+          <h2 className="display text-4xl md:text-6xl">More Work</h2>
           <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-            Long-form and short-form pieces. Instagram previews can&apos;t be embedded, so
-            those open on Instagram.
+            A secondary selection of long-form edits.
           </p>
         </div>
       </Reveal>
@@ -30,24 +29,6 @@ export function AdditionalWork() {
                 Watch on YouTube
               </a>
             </div>
-          </Reveal>
-        ))}
-      </div>
-
-      <Reveal>
-        <p className="eyebrow mt-16">Short-form · Instagram Reels</p>
-      </Reveal>
-      <div className="mt-5 grid grid-cols-2 gap-4 md:grid-cols-5">
-        {reelWork.map((url, i) => (
-          <Reveal key={url} delay={(i % 5) * 60}>
-            <PlaceholderMedia
-              title={`R${String(i + 1).padStart(2, "0")}`}
-              meta="Short-form"
-              cta="Watch →"
-              href={url}
-              ratio="aspect-[9/16]"
-              size="sm"
-            />
           </Reveal>
         ))}
       </div>
