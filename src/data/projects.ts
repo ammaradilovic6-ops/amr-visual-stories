@@ -73,7 +73,15 @@ export const projects: Project[] = [
     tags: ["SHOOT", "EDIT"],
     description: "Filmed and edited content from production through post-production.",
     role: ["Filming", "Camera operation", "Editing", "Post-production"],
-    media: [{ kind: "placeholder", label: "VIDEOGRAPHY / EDITING" }],
+    media: [
+      {
+        kind: "youtube",
+        id: "LRIP0yRXU20",
+        url: "https://www.youtube.com/watch?v=LRIP0yRXU20",
+        label: "Filmed & Edited",
+      },
+    ],
+
     layout: "tall",
   },
   {
