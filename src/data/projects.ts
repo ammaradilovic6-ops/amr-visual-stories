@@ -1,4 +1,11 @@
+import gordon01 from "@/assets/gordon-shortform-01.mp4.asset.json";
+import gordon02 from "@/assets/gordon-shortform-02.mp4.asset.json";
+import gordon03 from "@/assets/gordon-shortform-03.mp4.asset.json";
+import admir01 from "@/assets/admir-shortform-01.mp4.asset.json";
+import admir02 from "@/assets/admir-shortform-02.mp4.asset.json";
+
 export type Tag =
+
   | "EDIT"
   | "SHOOT"
   | "MOTION"
