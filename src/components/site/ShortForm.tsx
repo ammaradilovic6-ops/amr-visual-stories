@@ -47,7 +47,7 @@ export function ShortFormCard({ clip }: { clip: ShortFormClip }) {
           muted
           loop
           playsInline
-          preload="none"
+          preload="metadata"
           onPause={() => setPlaying(false)}
           className="absolute inset-0 h-full w-full object-contain"
         />
