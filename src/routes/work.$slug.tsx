@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { getProject, projects, clipsFor } from "@/data/projects";
+import { getProject, projects, clipsFor, type Media } from "@/data/projects";
 import { PlaceholderMedia, YouTubeMedia } from "@/components/site/Media";
 import { ShortFormCard } from "@/components/site/ShortForm";
 import { Reveal } from "@/components/site/Reveal";
@@ -35,7 +35,9 @@ function ProjectPage() {
   const { project } = Route.useLoaderData();
   const related = projects.filter((p) => p.slug !== project.slug).slice(0, 3);
   const clips = clipsFor(project.slug);
-  const yt = project.media.find((m) => m.kind === "youtube");
+  const yt = project.media.find(
+    (m): m is Extract<Media, { kind: "youtube" }> => m.kind === "youtube",
+  );
 
   return (
     <article className="shell pt-16 md:pt-24">

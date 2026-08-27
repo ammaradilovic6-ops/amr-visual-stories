@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { projects, type Tag } from "@/data/projects";
 import { ProjectCard } from "@/components/site/ProjectCard";
 import { AdditionalWork } from "@/components/site/AdditionalWork";
+import { ShortFormGrid } from "@/components/site/ShortForm";
 import { Reveal } from "@/components/site/Reveal";
 
 const filters: ("ALL" | Tag)[] = [
@@ -98,6 +99,8 @@ function WorkPage() {
           ) : null}
         </div>
       </section>
+
+      <ShortFormGrid />
 
       <AdditionalWork />
     </>
