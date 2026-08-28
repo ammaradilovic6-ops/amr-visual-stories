@@ -116,11 +116,7 @@ export function Atmosphere() {
     resize();
     window.addEventListener("resize", resize);
 
-    if (reduced) {
-      // single static pass so the texture still exists, without motion
-      ctx.globalCompositeOperation = "lighter";
-      for (let i = 0; i < 900; i++) step === step;
-    } else {
+    if (!reduced) {
       raf = requestAnimationFrame(step);
     }
 
