@@ -67,8 +67,8 @@ export const projects: Project[] = [
     layout: "wide",
   },
   {
-    slug: "kenny-marshall",
-    title: "Kenny Marshall",
+    slug: "kenny-marshal",
+    title: "Kenny Marshal",
     categories: ["VIDEOGRAPHY", "EDITING", "PRODUCTION"],
     tags: ["SHOOT", "EDIT"],
     description: "Filmed and edited content from production through post-production.",
@@ -128,6 +128,60 @@ export const youtubeWork: { id: string; url: string }[] = [
   { id: "l7b7hpGra8U", url: "https://www.youtube.com/watch?v=l7b7hpGra8U" },
   { id: "mi5nyErchKA", url: "https://www.youtube.com/watch?v=mi5nyErchKA" },
   { id: "d2uj8zEG9EA", url: "https://www.youtube.com/watch?v=d2uj8zEG9EA" },
+];
+
+/** The four long-form projects, with their real identities. */
+export type LongFormProject = {
+  id: string;
+  url: string;
+  title: string;
+  client: string;
+  categories: string[];
+  role: string;
+  description: string;
+};
+
+export const longForm: LongFormProject[] = [
+  {
+    id: "LRIP0yRXU20",
+    url: "https://www.youtube.com/watch?v=LRIP0yRXU20",
+    title: "Rottweiler",
+    client: "Kenny Marshal",
+    categories: ["VIDEOGRAPHY", "EDITING", "PRODUCTION"],
+    role: "Filmed & Edited",
+    description:
+      "Music video filmed and edited end to end — camera operation on location through to full post-production.",
+  },
+  {
+    id: "d2uj8zEG9EA",
+    url: "https://www.youtube.com/watch?v=d2uj8zEG9EA",
+    title: "Binance Blockchain Week, Dubai",
+    client: "Gordon Kast",
+    categories: ["VIDEOGRAPHY", "EVENT", "LONG-FORM"],
+    role: "Filmed & Edited",
+    description:
+      "On-location event coverage from Dubai — interviews, b-roll and a long-form edit built around the day.",
+  },
+  {
+    id: "mi5nyErchKA",
+    url: "https://www.youtube.com/watch?v=mi5nyErchKA",
+    title: "Cosmoverse 2025 Highlights",
+    client: "Gordon Kast",
+    categories: ["EVENT", "EDITING", "LONG-FORM"],
+    role: "Edited",
+    description:
+      "Conference highlight edit — pacing, sound design and motion built for retention.",
+  },
+  {
+    id: "l7b7hpGra8U",
+    url: "https://www.youtube.com/watch?v=l7b7hpGra8U",
+    title: "Najpopularnija pita na putu kroz BiH",
+    client: "Admir Shera",
+    categories: ["VLOG", "EDITING", "LONG-FORM"],
+    role: "Edited",
+    description:
+      "Travel-food vlog edit — story structure, pacing and captions for a creator-led YouTube channel.",
+  },
 ];
 
 /** Real uploaded short-form MP4s. Exactly five. */
@@ -219,7 +273,7 @@ export const experience = [
   { name: "Gordon Kast", meta: "Video Editing · Videography · Long-form · Short-form" },
   { name: "Admir Shera", meta: "Video Editing · Long-form · Short-form" },
   { name: "Yurii", meta: "Short-form · TikTok · Influencer Content" },
-  { name: "Kenny Marshall", meta: "Videography · Editing" },
+  { name: "Kenny Marshal", meta: "Videography · Editing" },
   { name: "Football Player Profile", meta: "Sports · Videography · Editing" },
 ];
 
